@@ -1,36 +1,32 @@
 pipeline AirportDataPipeline {
-    // Data extraction from a remote CSV file.
     block AirportDataExtractor oftype CSVExtractor {
         url: "https://opendata.rhein-kreis-neuss.de/api/explore/v2.1/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv?lang=en&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B";
         delimiter: ';';
     }
 
-    // Data transformation to conform to the database schema.
     block AirportDataTableInterpreter oftype TableInterpreter {
         header: true;
         columns: [
-            { name: "Lfd. Nummer", type: integer },
-            { name: "Name des Flughafens", type: text },
-            { name: "Ort", type: text },
-            { name: "Land", type: text },
-            { name: "IATA", type: text },
-            { name: "ICAO", type: text },
-            { name: "Latitude", type: decimal },
-            { name: "Longitude", type: decimal },
-            { name: "Altitude", type: integer },
-            { name: "Zeitzone", type: decimal },
-            { name: "DST", type: text },
-            { name: "Zeitzonen-Datenbank", type: text },
-            { name: "geo_punkt", type: text }
+            "Lfd. Nummer" oftype integer,
+            "Name des Flughafens" oftype text,
+            "Ort" oftype text,
+            "Land" oftype text,
+            "IATA" oftype text,
+            "ICAO" oftype text,
+            "Latitude" oftype decimal,
+            "Longitude" oftype decimal,
+            "Altitude" oftype integer,
+            "Zeitzone" oftype decimal,
+            "DST" oftype text,
+            "Zeitzonen-Datenbank" oftype text,
+            "geo_punkt" oftype text
         ];
     }
 
-    // Data loading into SQLite database.
     block AirportDataLoader oftype SQLiteLoader {
         table: "airports";
         file: "airports.sqlite";
     }
 
-    // Defining the flow of data from extraction to loading.
     AirportDataExtractor -> AirportDataTableInterpreter -> AirportDataLoader;
 }
