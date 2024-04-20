@@ -1,53 +1,36 @@
-version: '0.4.0'
+pipeline AirportDataPipeline {
+    // Data extraction from a remote CSV file.
+    block AirportDataExtractor oftype CSVExtractor {
+        url: "https://opendata.rhein-kreis-neuss.de/api/explore/v2.1/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv?lang=en&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B";
+        delimiter: ';';
+    }
 
-tasks:
-  - id: fetch_data
-    type: fetch
-    params:
-      url: "https://opendata.rhein-kreis-neuss.de/api/explore/v2.1/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv?lang=en&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
+    // Data transformation to conform to the database schema.
+    block AirportDataTableInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            { name: "Lfd. Nummer", type: integer },
+            { name: "Name des Flughafens", type: text },
+            { name: "Ort", type: text },
+            { name: "Land", type: text },
+            { name: "IATA", type: text },
+            { name: "ICAO", type: text },
+            { name: "Latitude", type: decimal },
+            { name: "Longitude", type: decimal },
+            { name: "Altitude", type: integer },
+            { name: "Zeitzone", type: decimal },
+            { name: "DST", type: text },
+            { name: "Zeitzonen-Datenbank", type: text },
+            { name: "geo_punkt", type: text }
+        ];
+    }
 
-  - id: parse_csv
-    type: parse_csv
-    params:
-      delimiter: ";"
-    input: fetch_data
+    // Data loading into SQLite database.
+    block AirportDataLoader oftype SQLiteLoader {
+        table: "airports";
+        file: "airports.sqlite";
+    }
 
-  - id: write_sqlite
-    type: write_sqlite
-    params:
-      database: "airports.sqlite"
-      table: "airports"
-      schema:
-        - column: id
-          type: TEXT
-        - column: name
-          type: TEXT
-        - column: latitude_deg
-          type: FLOAT
-        - column: longitude_deg
-          type: FLOAT
-        - column: elevation_ft
-          type: FLOAT
-        - column: continent
-          type: TEXT
-        - column: iso_country
-          type: TEXT
-        - column: iso_region
-          type: TEXT
-        - column: municipality
-          type: TEXT
-        - column: scheduled_service
-          type: TEXT
-        - column: gps_code
-          type: TEXT
-        - column: iata_code
-          type: TEXT
-        - column: local_code
-          type: TEXT
-        - column: home_link
-          type: TEXT
-        - column: wikipedia_link
-          type: TEXT
-        - column: keywords
-          type: TEXT
-    input: parse_csv
+    // Defining the flow of data from extraction to loading.
+    AirportDataExtractor -> AirportDataTableInterpreter -> AirportDataLoader;
+}
