@@ -30,15 +30,21 @@ Data Type: CSV
 
 World Air Quality Data 2024
 ### Datasource 2: FAO.org
-•	Metadata URL: https://www.fao.org/faostat/en/#data/QCL/metadata
-•	Data URL: https://www.fao.org/faostat/en/#data/QCL
-•	Data Type: CSV
-•	Crops and Livestocks products
+Metadata URL: https://www.fao.org/faostat/en/#data/QCL/metadata
+
+Data URL: https://www.fao.org/faostat/en/#data/QCL
+
+Data Type: CSV
+
+Crops and Livestocks products
 ### Datasource 3: Kaggle.com
-•	Metadata URL:  :  https://www.kaggle.com/datasets/kaggle/meta-kaggle-code
-•	Data URL: https://www.kaggle.com/datasets/imtkaggleteam/crop-production/download?datasetVersionNumber=1 
-•	Data Type: CSV
-•	Crop Production
+Metadata URL:  :  https://www.kaggle.com/datasets/kaggle/meta-kaggle-code
+
+Data URL: https://www.kaggle.com/datasets/imtkaggleteam/crop-production/download?datasetVersionNumber=1 
+
+Data Type: CSV
+
+Crop Production
 
 ## Work Packages
 
