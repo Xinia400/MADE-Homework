@@ -39,13 +39,12 @@ This project will explore a comprehensive understanding of the relationship betw
 
 ## Work Packages
 
-1. Data Preparation
-2. Exploratory Data Analysis (EDA)
-3. Data Merging
-4. Correlation Analysis
-5. Trend Analysis
-6. Report Findings
+<!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
+1. Example Issue [#1][i1]
+2. ...
+
+[i1]: https://github.com/jvalue/made-template/issues/1
 
 
 
