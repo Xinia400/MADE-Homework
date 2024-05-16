@@ -23,8 +23,11 @@ This project will explore a comprehensive understanding of the relationship betw
 
 ### Datasource 1: Kaggle.com
 Metadata URL:  https://www.kaggle.com/datasets/kaggle/meta-kaggle-code
+
 Data URL: https://www.kaggle.com/datasets/kanchana1990/world-air-quality-data-2024-updated/download?datasetVersionNumber=1 
+
 Data Type: CSV
+
 World Air Quality Data 2024
 ### Datasource 2: FAO.org
 •	Metadata URL: https://www.fao.org/faostat/en/#data/QCL/metadata
