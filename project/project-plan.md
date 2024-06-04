@@ -32,9 +32,9 @@ World Air Quality Data 2024
 ### Datasource 2: FAO.org
 Metadata URL: https://www.fao.org/faostat/en/#data/QCL/metadata
 
-Data URL: https://www.fao.org/faostat/en/#data/QCL
+Data URL: https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_Europe.zip
 
-Data Type: CSV
+Data Type: zip
 
 Crops and Livestocks products
 ### Datasource 3: Kaggle.com
