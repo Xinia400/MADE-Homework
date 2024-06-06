@@ -37,14 +37,6 @@ Data URL: https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_
 Data Type: zip
 
 Crops and Livestocks products
-### Datasource 3: Kaggle.com
-Metadata URL:  :  https://www.kaggle.com/datasets/kaggle/meta-kaggle-code
-
-Data URL: https://www.kaggle.com/datasets/imtkaggleteam/crop-production/download?datasetVersionNumber=1 
-
-Data Type: CSV
-
-Crop Production
 
 ## Work Packages
 
