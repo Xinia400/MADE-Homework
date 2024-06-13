@@ -37,26 +37,7 @@ pipeline climate_analysis {
 
     // Step 6: Delete unnecessary columns by specifying the exact columns (corrected approach)
     block weather_measurement_column_deleter oftype ColumnDeleter {
-        delete: [
-            "Column13",
-            "Column14",
-            "Column15",
-            "Column16",
-            "Column17",
-            "Column18",
-            "Column19",
-            "Column20",
-            "Column21",
-            "Column22",
-            "Column23",
-            "Column24",
-            "Column25",
-            "Column26",
-            "Column27",
-            "Column28",
-            "Column29",
-            "Column30"
-        ]; // Replace with actual column names if available
+         delete: [column F, column G, column H, column I];
     }
 
     // Step 7: Rename columns to English (corrected approach)
