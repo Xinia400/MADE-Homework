@@ -61,6 +61,17 @@ pipeline GoodstransportPipeline {
        lowerBound: 0;
        lowerBoundInclusive: true;
    }
+          valuetype MonthPattern oftype text {
+       constraints: [RegEx_1,];
+   }
+
+   valuetype PositiveIntPattern oftype integer {
+       constraints: [RangeConst_1,];
+   }
+
+   valuetype G_IdPattern oftype text {
+       constraints: [RegEx_2,];
+   }
 
    transform MonthCapitalize {
        from prev oftype text;
@@ -86,6 +97,7 @@ pipeline GoodstransportPipeline {
        use: MonthCapitalize;
    }
 
+
    block GoodsTableInterpreter oftype TableInterpreter {
        header: true;
        columns: [
@@ -97,17 +109,6 @@ pipeline GoodstransportPipeline {
            "abroad" oftype PositiveIntPattern,
            "total" oftype PositiveIntPattern
        ];
-   }
-    valuetype MonthPattern oftype text {
-       constraints: [RegEx_1,];
-   }
-
-   valuetype PositiveIntPattern oftype integer {
-       constraints: [RangeConst_1,];
-   }
-
-   valuetype G_IdPattern oftype text {
-       constraints: [RegEx_2,];
    }
 
    block GoodsLoader oftype SQLiteLoader {
