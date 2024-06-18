@@ -57,3 +57,4 @@ df1= df1.fillna('Other')
 
 save_sqlite(df1, 'air_quality', db_path)
 save_sqlite(df2, 'crop_production', db_path)
+print("Database Stored Successfully")

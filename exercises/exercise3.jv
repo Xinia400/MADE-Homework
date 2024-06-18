@@ -49,11 +49,11 @@ pipeline GoodstransportPipeline {
        write: ["abroad", "total"];
    }
 
-   constraint RegEx_1 oftype RegexConstraint {
+   constraint Reg_1 oftype RegexConstraint {
        regex: /\b(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\b/;
    }
 
-   constraint RegEx_2 oftype RegexConstraint {
+   constraint Reg_2 oftype RegexConstraint {
        regex: /^NST7-[0-9A-Z]{3}$/;
    }
 
@@ -62,7 +62,7 @@ pipeline GoodstransportPipeline {
        lowerBoundInclusive: true;
    }
           valuetype MonthPattern oftype text {
-       constraints: [RegEx_1,];
+       constraints: [Reg_1,];
    }
 
    valuetype PositiveIntPattern oftype integer {
@@ -70,7 +70,7 @@ pipeline GoodstransportPipeline {
    }
 
    valuetype G_IdPattern oftype text {
-       constraints: [RegEx_2,];
+       constraints: [Reg_2,];
    }
 
    transform MonthCapitalize {
