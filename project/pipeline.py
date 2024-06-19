@@ -44,6 +44,8 @@ df2 = download_zip(url_2)
 df2 = df2[['Area', 'Item', 'Element', 'Y2018', 'Y2019', 'Y2020', 'Y2021', 'Y2022']]
 df2 = df2.fillna(0)
 
+df2 = df2[df2['Area'] == 'Germany']
+
 df1 = df1[['City', 'Pollutant', 'Value', 'Last Updated','Country Label']]
 
 df1 = df1[df1['Country Label'] == 'Germany']
