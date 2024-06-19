@@ -17,7 +17,10 @@ def fetch_csv(url, sep=';', encoding='utf-8'):
     return df
 
 
-
+def save_sqlite(df, table_name, db_path):
+    conn = sqlite3.connect(db_path)
+    df.to_sql(table_name, conn, if_exists='replace', index=False)
+    conn.close()
 
 def download_zip(url, headers=None):
     response = requests.get(url, headers=headers, verify=False)
