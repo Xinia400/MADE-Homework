@@ -3,7 +3,7 @@ import pytest
 import os
 
 # Define the path to the SQLite database
-db_path = "../data/data_base.db"
+db_path = os.path.join(os.path.dirname(__file__), '../data/data_base.db')
 
 @pytest.fixture
 def db_cursor():
