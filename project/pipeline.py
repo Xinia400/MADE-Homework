@@ -36,7 +36,9 @@ def download_zip(url, headers=None):
 url_1 = 'https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/openaq/exports/csv?lang=en&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B'
 url_2 = 'https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_Europe.zip'
 
-db_path = os.path.join('../data', 'data_base.db')
+#db_path = os.path.join('../data', 'data_base.db')
+sqlite_db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'data_base.db'))
+print(f"SQLite DB Path: {sqlite_db_path}")
 
 df1 = fetch_csv(url_1)
 df2 = download_zip(url_2)
@@ -57,6 +59,6 @@ df1 = df1[(df1['Last Updated'] >= pd.Timestamp('2018-01-01', tz='UTC')) & (df1['
 df1['Last Updated'] = df1['Last Updated'].dt.year
 df1= df1.fillna('Other')
 
-save_sqlite(df1, 'air_quality', db_path)
-save_sqlite(df2, 'crop_production', db_path)
+save_sqlite(df1, 'air_quality', sqlite_db_path)
+save_sqlite(df2, 'crop_production',sqlite_db_path)
 print("Database Stored Successfully")
