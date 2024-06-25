@@ -26,10 +26,8 @@ jobs:
 
     - name: Run pipeline
       run: |
-        chmod +x project/pipeline.sh
-        ./project/pipeline.sh
+        python3 ./project/pipeline.py
 
     - name: Run tests
       run: |
-        chmod +x project/test.sh
-        ./project/test.sh
+        python3 ./project/test.py
