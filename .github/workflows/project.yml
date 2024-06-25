@@ -1,4 +1,4 @@
-# .github/workflows/ci.yml
+# .github/workflows/project.yml
 name: CI
 
 on:
@@ -26,12 +26,10 @@ jobs:
 
     - name: Run pipeline
       run: |
-        cd project
-        chmod +x pipeline.sh
-        ./pipeline.sh
+        chmod +x project/pipeline.sh
+        ./project/pipeline.sh
 
     - name: Run tests
       run: |
-        cd project
-        chmod +x test.sh
-        ./test.sh
+        chmod +x project/test.sh
+        ./project/test.sh
