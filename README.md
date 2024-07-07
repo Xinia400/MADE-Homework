@@ -50,10 +50,6 @@ pip install pandas requests sqlite3 matplotlib seaborn scikit-learn
 [**Project Visualization**](project/Analysis_Visualization.ipynb): Jupyter Notebook demonstrating exploratory data analysis (EDA) for 
 the project.
 
-[**Presentation Slides**](project/slides.pdf)
-
-[**Presenation Video Link**](project/presentation-video.md)
-
 ## Data Pipeline and Testing
 
 ### Automated Data Pipeline
